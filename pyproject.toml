@@ -1,0 +1,38 @@
+[project]
+name = "maf-workshop"
+description = "Azure AI Agent Framework Workshop"
+authors = [{ name = "Workshop", email = "workshop@example.com"}]
+readme = "README.md"
+requires-python = ">=3.12"
+version = "0.1.0"
+license = { text = "MIT" }
+dependencies = [
+    "agent-framework>=1.0.0b251028",
+    "agent-framework-azure-ai>=1.0.0b251028", 
+    "python-dotenv>=1.0.0",
+    "azure-identity>=1.15.0",
+    "pydantic>=2.0.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.5.0",
+    "mypy>=1.0.0",
+]
+
+[tool.uv]
+package = false
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.21.0",
+    "ruff>=0.5.0",
+    "mypy>=1.0.0",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
