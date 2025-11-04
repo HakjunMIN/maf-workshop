@@ -14,7 +14,7 @@ dependencies = [
     "pydantic>=2.0.0",
     "jupyter>=1.0.0",
     "ipykernel>=6.0.0",
-    "mem0ai>=1.0.0",
+    "mem0ai==0.1.117",
 ]
 
 [dependency-groups]

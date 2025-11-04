@@ -1748,7 +1748,7 @@ requires-dist = [
     { name = "azure-identity", specifier = ">=1.15.0" },
     { name = "ipykernel", specifier = ">=6.0.0" },
     { name = "jupyter", specifier = ">=1.0.0" },
-    { name = "mem0ai", specifier = ">=1.0.0" },
+    { name = "mem0ai", specifier = "==0.1.117" },
     { name = "pydantic", specifier = ">=2.0.0" },
     { name = "python-dotenv", specifier = ">=1.0.0" },
 ]
@@ -1865,7 +1865,7 @@ ws = [
 
 [[package]]
 name = "mem0ai"
-version = "1.0.0"
+version = "0.1.117"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "openai" },
@@ -1876,9 +1876,9 @@ dependencies = [
     { name = "qdrant-client" },
     { name = "sqlalchemy" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/99/02/b6c3bba83b4bb6450e6c8a07e4419b24644007588f5ef427b680addbd30f/mem0ai-1.0.0.tar.gz", hash = "sha256:8a891502e6547436adb526a59acf091cacaa689e182e186f4dd8baf185d75224", size = 177780, upload-time = "2025-10-16T10:36:23.871Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/55/bb/8e5c5a197ee2103a4a73ae65e8ada5c19ebc505e43c00518b5c8da4dcc91/mem0ai-0.1.117.tar.gz", hash = "sha256:aaf27fcc86a83c5906491bb0bf0588d7fe4db96e5af94e331280b18ae1e99092", size = 137816, upload-time = "2025-09-03T17:44:12.175Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/61/49/eed6e2a77bf90e37da25c9a336af6a6129b0baae76551409ee995f0a1f0c/mem0ai-1.0.0-py3-none-any.whl", hash = "sha256:107fd2990613eba34880ca6578e6cdd4a8158fd35f5b80be031b6e2b5a66a1f1", size = 268141, upload-time = "2025-10-16T10:36:21.63Z" },
+    { url = "https://files.pythonhosted.org/packages/5b/f4/7fb9974bb1f81afb363a6b5a74f64609bf8e021d0cfe486909c6db6a8f3b/mem0ai-0.1.117-py3-none-any.whl", hash = "sha256:12159d6b9fef22a155f9b8b305999c52dfad20a46e7ccbced68677b6f48d4b57", size = 213063, upload-time = "2025-09-03T17:44:10.61Z" },
 ]
 
 [[package]]
@@ -2310,7 +2310,7 @@ wheels = [
 
 [[package]]
 name = "openai"
-version = "1.109.1"
+version = "1.99.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
@@ -2322,9 +2322,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/a1/a303104dc55fc546a3f6914c842d3da471c64eec92043aef8f652eb6c524/openai-1.109.1.tar.gz", hash = "sha256:d173ed8dbca665892a6db099b4a2dfac624f94d20a93f46eb0b56aae940ed869", size = 564133, upload-time = "2025-09-24T13:00:53.075Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8a/d2/ef89c6f3f36b13b06e271d3cc984ddd2f62508a0972c1cbcc8485a6644ff/openai-1.99.9.tar.gz", hash = "sha256:f2082d155b1ad22e83247c3de3958eb4255b20ccf4a1de2e6681b6957b554e92", size = 506992, upload-time = "2025-08-12T02:31:10.054Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1d/2a/7dd3d207ec669cacc1f186fd856a0f61dbc255d24f6fdc1a6715d6051b0f/openai-1.109.1-py3-none-any.whl", hash = "sha256:6bcaf57086cf59159b8e27447e4e7dd019db5d29a438072fbd49c290c7e65315", size = 948627, upload-time = "2025-09-24T13:00:50.754Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/fb/df274ca10698ee77b07bff952f302ea627cc12dac6b85289485dd77db6de/openai-1.99.9-py3-none-any.whl", hash = "sha256:9dbcdb425553bae1ac5d947147bebbd630d91bbfc7788394d4c4f3a35682ab3a", size = 786816, upload-time = "2025-08-12T02:31:08.34Z" },
 ]
 
 [[package]]
