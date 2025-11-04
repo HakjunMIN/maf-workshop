@@ -1,251 +1,400 @@
-# Get Started with Microsoft Agent Framework for Python Developers
+# Microsoft Agent Framework Workshop
 
-## Quick Install
+Azure AI Agent Framework를 활용한 AI 에이전트 개발 워크샵입니다. 이 워크샵에서는 채팅, 에이전트, Azure AI 통합, MCP, 장기 메모리, 미들웨어, 그리고 Observability까지 다양한 주제를 다룹니다.
 
-We recommend two common installation paths depending on your use case.
+## 📚 워크샵 구성
 
-### 1. Development mode
+이 워크샵은 7개의 Jupyter Notebook으로 구성되어 있으며, 각 노트북은 독립적으로 학습할 수 있습니다.
 
-If you are exploring or developing locally, install the entire framework with all sub-packages:
+### 1️⃣ Chat (01. chat.ipynb)
+기본적인 채팅 기능 구현을 학습합니다.
 
-```bash
-pip install agent-framework --pre
-```
+**학습 내용:**
+- Azure OpenAI Chat Client 기본 사용법
+- 스트리밍 응답 처리
+- 대화 이력 관리
+- 시스템 메시지와 사용자 메시지 구성
 
-This installs the core and every integration package, making sure that all features are available without additional steps. The `--pre` flag is required while Agent Framework is in preview. This is the simplest way to get started.
+**주요 예제:**
+- 기본 채팅 구현
+- 스트리밍 응답 처리
+- 대화 컨텍스트 유지
 
-### 2. Selective install
+---
 
-If you only need specific integrations, you can install at a more granular level. This keeps dependencies lighter and focuses on what you actually plan to use. Some examples:
+### 2️⃣ Agent (02. agent.ipynb)
+AI 에이전트의 기본 개념과 도구(Tool) 사용법을 학습합니다.
 
-```bash
-# Core only
-# includes Azure OpenAI and OpenAI support by default
-# also includes workflows and orchestrations
-pip install agent-framework-core --pre
+**학습 내용:**
+- Agent의 개념과 구성 요소
+- Function Calling을 통한 도구 정의
+- 복잡한 도구 체인 구성
+- 구조화된 출력 (Structured Output)
+- 코드 인터프리터 사용
 
-# Core + Azure AI integration
-pip install agent-framework-azure-ai --pre
+**주요 예제:**
+- 날씨 정보 조회 Agent
+- 계산기 Agent
+- 비전 모델을 활용한 이미지 분석
+- 여러 도구를 조합한 복합 Agent
 
-# Core + Microsoft Copilot Studio integration
-pip install agent-framework-copilotstudio --pre
+---
 
-# Core + both Microsoft Copilot Studio and Azure AI integration
-pip install agent-framework-microsoft agent-framework-azure-ai --pre
-```
+### 3️⃣ Azure AI Integration (03. azure_ai.ipynb)
+Azure AI 서비스와의 통합을 학습합니다.
 
-This selective approach is useful when you know which integrations you need, and it is the recommended way to set up lightweight environments.
+**학습 내용:**
+- Azure AI Project 설정
+- Azure AI Agent Client 사용
+- Azure 인증 방법
+- Azure AI 리소스 활용
 
-Supported Platforms:
+**주요 예제:**
+- Azure AI Agent 생성
+- Azure 인증 설정
+- Azure 리소스와 통합
 
-- Python: 3.10+
-- OS: Windows, macOS, Linux
+---
 
-## 1. Setup API Keys
+### 4️⃣ MCP - Model Context Protocol (04. mcp.ipynb)
+MCP를 사용하여 Agent를 서비스로 노출하는 방법을 학습합니다.
 
-Set as environment variables, or create a .env file at your project root:
+**학습 내용:**
+- MCP의 개념과 작동 방식
+- Agent를 MCP Server로 노출하기
+- MCP 인증 (API Key, Bearer Token)
+- MCP 도구를 Agent에 통합
+- Claude Desktop, VS Code Copilot 연동
 
-```bash
-OPENAI_API_KEY=sk-...
-OPENAI_CHAT_MODEL_ID=...
-...
-AZURE_OPENAI_API_KEY=...
-AZURE_OPENAI_ENDPOINT=...
-AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=...
-...
-AZURE_AI_PROJECT_ENDPOINT=...
-AZURE_AI_MODEL_DEPLOYMENT_NAME=...
-```
+**주요 예제:**
+- 레스토랑 메뉴 Agent를 MCP Server로 노출
+- API Key 인증 구현
+- 번역 서비스 Agent
+- 날씨 정보 서비스 Agent
 
-You can also override environment variables by explicitly passing configuration parameters to the chat client constructor:
+---
 
+### 5️⃣ Long-term Memory (05. long_term_memory.ipynb)
+장기 컨텍스트 기억(Long-term Memory) 구현 방법을 학습합니다.
+
+**학습 내용:**
+- Context Provider의 개념
+- 커스텀 Context Provider 구현
+- Mem0 Context Provider 사용
+- Redis Context Provider 사용
+- Thread 관리 및 스코핑 전략
+
+**주요 예제:**
+- 사용자 정보 기억하는 커스텀 Provider
+- Mem0 Platform 활용
+- Mem0 OSS (Open Source) 사용
+- Redis를 활용한 하이브리드 검색
+- Global/Per-operation Thread Scope
+- Multiple Agents 메모리 격리
+
+---
+
+### 6️⃣ Middleware (06. middleware.ipynb)
+Agent의 요청/응답 처리 과정에 개입하는 Middleware를 학습합니다.
+
+**학습 내용:**
+- Middleware의 개념과 작동 방식
+- 커스텀 Middleware 구현
+- 로깅 Middleware
+- 캐싱 Middleware
+- 에러 핸들링 Middleware
+
+**주요 예제:**
+- 요청/응답 로깅
+- 응답 캐싱으로 성능 최적화
+- 에러 발생 시 자동 재시도
+- 여러 Middleware 체인 구성
+
+---
+
+### 7️⃣ Observability (07. observability.ipynb)
+Agent의 모니터링과 추적을 위한 Observability를 학습합니다.
+
+**학습 내용:**
+- OpenTelemetry 통합
+- 분산 추적 (Distributed Tracing)
+- 메트릭 수집
+- 로그 집계
+- Azure Monitor 통합
+
+**주요 예제:**
+- OpenTelemetry 설정
+- Trace와 Span 생성
+- 커스텀 메트릭 추가
+- Azure Application Insights 연동
+
+---
+
+## 🚀 시작하기
+
+### 사전 요구사항
+
+- Python 3.12 이상
+- Azure OpenAI 리소스 또는 OpenAI API 키
+- (선택) Azure AI Project
+- (선택) Redis (Long-term Memory 실습용)
+- (선택) Mem0 API 키 (Long-term Memory 실습용)
+
+### 설치
+
+1. **저장소 클론**
+   ```bash
+   git clone <repository-url>
+   cd maf-workshop
+   ```
+
+2. **가상 환경 생성 및 활성화**
+   
+   **UV 사용 (권장):**
+   ```bash
+   uv venv
+   source .venv/bin/activate  # macOS/Linux
+   # 또는
+   .venv\Scripts\activate  # Windows
+   ```
+
+   **또는 Python venv 사용:**
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # macOS/Linux
+   # 또는
+   .venv\Scripts\activate  # Windows
+   ```
+
+3. **패키지 설치**
+   
+   **UV 사용:**
+   ```bash
+   uv pip install -e .
+   ```
+
+   **또는 pip 사용:**
+   ```bash
+   pip install -e .
+   ```
+
+4. **환경 변수 설정**
+   
+   `.env` 파일을 생성하고 다음 내용을 추가합니다:
+
+   ```env
+   # Azure OpenAI 설정 (필수)
+   AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
+   AZURE_OPENAI_API_KEY=your-api-key
+   AZURE_OPENAI_CHAT_DEPLOYMENT_NAME=gpt-4
+   
+   # Azure AI Project 설정 (선택)
+   AZURE_AI_PROJECT_ENDPOINT=https://your-project.api.azureml.ms
+   AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4
+   
+   # Mem0 설정 (선택 - Long-term Memory 실습용)
+   MEM0_API_KEY=your-mem0-api-key
+   
+   # Redis 설정 (선택 - Long-term Memory 실습용)
+   REDIS_URL=redis://localhost:6379
+   ```
+
+5. **Jupyter 실행**
+   ```bash
+   jupyter lab
+   # 또는
+   jupyter notebook
+   ```
+
+---
+
+## 📖 학습 가이드
+
+### 추천 학습 순서
+
+1. **기초 단계** (필수)
+   - 01. Chat → 02. Agent → 03. Azure AI Integration
+
+2. **고급 기능** (선택)
+   - 04. MCP → 05. Long-term Memory
+
+3. **운영 및 모니터링** (선택)
+   - 06. Middleware → 07. Observability
+
+### 각 노트북 학습 시간
+
+- Chat: 30분
+- Agent: 1시간
+- Azure AI Integration: 30분
+- MCP: 1시간
+- Long-term Memory: 1.5시간
+- Middleware: 45분
+- Observability: 1시간
+
+**총 학습 시간: 약 6시간**
+
+---
+
+## 🛠️ 기술 스택
+
+### 핵심 라이브러리
+
+- **agent-framework**: Microsoft Agent Framework
+- **agent-framework-azure-ai**: Azure AI 통합
+- **azure-identity**: Azure 인증
+- **python-dotenv**: 환경 변수 관리
+- **pydantic**: 데이터 검증 및 직렬화
+
+### 추가 라이브러리 (선택)
+
+- **mem0ai**: Mem0 장기 메모리
+- **redis**: Redis 캐싱 및 저장소
+- **opentelemetry**: Observability
+- **mcp**: Model Context Protocol
+
+---
+
+## 💡 주요 학습 포인트
+
+### 1. Agent 설계 패턴
 ```python
-from agent_framework.azure import AzureOpenAIChatClient
+# 도구 정의
+def get_weather(city: str) -> str:
+    return f"{city}의 날씨 정보"
 
-chat_client = AzureOpenAIChatClient(
-    api_key='',
-    endpoint='',
-    deployment_name='',
-    api_version='',
+# Agent 생성
+agent = client.create_agent(
+    name="WeatherAgent",
+    instructions="날씨 정보를 제공하는 Assistant",
+    tools=[get_weather]
+)
+
+# 실행
+result = await agent.run("서울 날씨 알려줘")
+```
+
+### 2. Context Provider 활용
+```python
+# 커스텀 Context Provider
+class CustomMemory(ContextProvider):
+    async def invoking(self, messages, **kwargs):
+        # 컨텍스트 제공
+        return Context(instructions="추가 지시사항")
+    
+    async def invoked(self, request_messages, response_messages, **kwargs):
+        # 메모리 업데이트
+        pass
+```
+
+### 3. MCP Server 노출
+```python
+# Agent를 MCP Server로 노출
+server = agent.as_mcp_server()
+
+# Claude Desktop, VS Code에서 사용 가능
+```
+
+### 4. Middleware 체인
+```python
+# 여러 Middleware 조합
+agent = ChatAgent(
+    chat_client=client,
+    middlewares=[
+        LoggingMiddleware(),
+        CachingMiddleware(),
+        ErrorHandlingMiddleware()
+    ]
 )
 ```
 
-See the following [setup guide](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started) for more information.
+---
 
-## 2. Create a Simple Agent
+## 🔧 문제 해결
 
-Create agents and invoke them directly:
+### 일반적인 문제
 
-```python
-import asyncio
-from agent_framework import ChatAgent
-from agent_framework.openai import OpenAIChatClient
+#### 1. Azure OpenAI 연결 오류
+```
+AuthenticationError: Incorrect API key provided
+```
+**해결방법:** `.env` 파일의 `AZURE_OPENAI_API_KEY`를 확인하세요.
 
-async def main():
-    agent = ChatAgent(
-        chat_client=OpenAIChatClient(),
-        instructions="""
-        1) A robot may not injure a human being...
-        2) A robot must obey orders given it by human beings...
-        3) A robot must protect its own existence...
+#### 2. 코드 인터프리터 리전 오류
+```
+BadRequestError: Code interpreter tool cannot be used in this region
+```
+**해결방법:** 노트북에 포함된 대체 함수 도구를 사용하세요.
 
-        Give me the TLDR in exactly 5 words.
-        """
-    )
+#### 3. Redis 연결 오류
+```
+ConnectionError: Error connecting to Redis
+```
+**해결방법:** 
+```bash
+# Docker로 Redis 실행
+docker run --name redis -p 6379:6379 -d redis:8.0.3
 
-    result = await agent.run("Summarize the Three Laws of Robotics")
-    print(result)
-
-asyncio.run(main())
-# Output: Protect humans, obey, self-preserve, prioritized.
+# 기존 컨테이너 시작
+docker start redis
 ```
 
-## 3. Directly Use Chat Clients (No Agent Required)
-
-You can use the chat client classes directly for advanced workflows:
-
-```python
-import asyncio
-from agent_framework import ChatMessage
-from agent_framework.openai import OpenAIChatClient
-
-async def main():
-    client = OpenAIChatClient()
-
-    messages = [
-        ChatMessage(role="system", text="You are a helpful assistant."),
-        ChatMessage(role="user", text="Write a haiku about Agent Framework.")
-    ]
-
-    response = await client.get_response(messages)
-    print(response.messages[0].text)
-
-    """
-    Output:
-
-    Agents work in sync,
-    Framework threads through each task—
-    Code sparks collaboration.
-    """
-
-asyncio.run(main())
+#### 4. Mem0 API 오류
 ```
-
-## 4. Build an Agent with Tools and Functions
-
-Enhance your agent with custom tools and function calling:
-
-```python
-import asyncio
-from typing import Annotated
-from random import randint
-from pydantic import Field
-from agent_framework import ChatAgent
-from agent_framework.openai import OpenAIChatClient
-
-
-def get_weather(
-    location: Annotated[str, Field(description="The location to get the weather for.")],
-) -> str:
-    """Get the weather for a given location."""
-    conditions = ["sunny", "cloudy", "rainy", "stormy"]
-    return f"The weather in {location} is {conditions[randint(0, 3)]} with a high of {randint(10, 30)}°C."
-
-
-def get_menu_specials() -> str:
-    """Get today's menu specials."""
-    return """
-    Special Soup: Clam Chowder
-    Special Salad: Cobb Salad
-    Special Drink: Chai Tea
-    """
-
-
-async def main():
-    agent = ChatAgent(
-        chat_client=OpenAIChatClient(),
-        instructions="You are a helpful assistant that can provide weather and restaurant information.",
-        tools=[get_weather, get_menu_specials]
-    )
-
-    response = await agent.run("What's the weather in Amsterdam and what are today's specials?")
-    print(response)
-
-    """
-    Output:
-    The weather in Amsterdam is sunny with a high of 22°C. Today's specials include
-    Clam Chowder soup, Cobb Salad, and Chai Tea as the special drink.
-    """
-
-if __name__ == "__main__":
-    asyncio.run(main())
+ValidationError: Filters are required and cannot be empty
 ```
+**해결방법:** `application_id`와 `agent_id`를 모두 제공하세요.
 
-You can explore additional agent samples [here](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/agents).
+---
 
-## 5. Multi-Agent Orchestration
+## 📚 참고 자료
 
-Coordinate multiple agents to collaborate on complex tasks using orchestration patterns:
+### 공식 문서
+- [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)
+- [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/)
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [Mem0 Documentation](https://docs.mem0.ai/)
 
-```python
-import asyncio
-from agent_framework import ChatAgent
-from agent_framework.openai import OpenAIChatClient
+### 추가 학습 자료
+- [Azure AI Studio](https://ai.azure.com/)
+- [OpenTelemetry Python](https://opentelemetry.io/docs/languages/python/)
+- [Redis Vector Search](https://redis.io/docs/stack/search/reference/vectors/)
 
+---
 
-async def main():
-    # Create specialized agents
-    writer = ChatAgent(
-        chat_client=OpenAIChatClient(),
-        name="Writer",
-        instructions="You are a creative content writer. Generate and refine slogans based on feedback."
-    )
+## 🤝 기여하기
 
-    reviewer = ChatAgent(
-        chat_client=OpenAIChatClient(),
-        name="Reviewer",
-        instructions="You are a critical reviewer. Provide detailed feedback on proposed slogans."
-    )
+이 워크샵에 기여하고 싶으시다면:
 
-    # Sequential workflow: Writer creates, Reviewer provides feedback
-    task = "Create a slogan for a new electric SUV that is affordable and fun to drive."
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-    # Step 1: Writer creates initial slogan
-    initial_result = await writer.run(task)
-    print(f"Writer: {initial_result}")
+---
 
-    # Step 2: Reviewer provides feedback
-    feedback_request = f"Please review this slogan: {initial_result}"
-    feedback = await reviewer.run(feedback_request)
-    print(f"Reviewer: {feedback}")
+## 📝 라이선스
 
-    # Step 3: Writer refines based on feedback
-    refinement_request = f"Please refine this slogan based on the feedback: {initial_result}\nFeedback: {feedback}"
-    final_result = await writer.run(refinement_request)
-    print(f"Final Slogan: {final_result}")
+이 프로젝트는 MIT 라이선스 하에 배포됩니다.
 
-    # Example Output:
-    # Writer: "Charge Forward: Affordable Adventure Awaits!"
-    # Reviewer: "Good energy, but 'Charge Forward' is overused in EV marketing..."
-    # Final Slogan: "Power Up Your Adventure: Premium Feel, Smart Price!"
+---
 
-if __name__ == "__main__":
-    asyncio.run(main())
-```
+## 💬 문의 및 지원
 
-**Note**: Advanced orchestration patterns like GroupChat, Sequential, and Concurrent orchestrations are coming soon.
+질문이나 문제가 있으시면 이슈를 등록해주세요.
 
-## More Examples & Samples
+---
 
-- [Getting Started with Agents](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/agents): Basic agent creation and tool usage
-- [Chat Client Examples](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/chat_client): Direct chat client usage patterns
-- [Azure AI Integration](https://github.com/microsoft/agent-framework/tree/main/python/packages/azure-ai): Azure AI integration
-- [Workflow Samples](https://github.com/microsoft/agent-framework/tree/main/python/samples/getting_started/workflows): Advanced multi-agent patterns
+## 🎯 다음 단계
 
-## Agent Framework Documentation
+워크샵을 완료한 후:
 
-- [Agent Framework Repository](https://github.com/microsoft/agent-framework)
-- [Python Package Documentation](https://github.com/microsoft/agent-framework/tree/main/python)
-- [.NET Package Documentation](https://github.com/microsoft/agent-framework/tree/main/dotnet)
-- [Design Documents](https://github.com/microsoft/agent-framework/tree/main/docs/design)
-- Learn docs are coming soon.
+1. **프로덕션 배포**: Azure Container Apps 또는 App Service에 배포
+2. **CI/CD 구성**: GitHub Actions 또는 Azure DevOps 파이프라인 설정
+3. **모니터링**: Azure Application Insights와 통합
+4. **보안 강화**: Azure Key Vault로 시크릿 관리
+5. **성능 최적화**: 캐싱, 배치 처리 등 적용
+
+---
+
+**Happy Learning! 🚀**
