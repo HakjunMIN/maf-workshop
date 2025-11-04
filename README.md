@@ -1,6 +1,6 @@
 # Microsoft Agent Framework Workshop
 
-Azure AI Agent Framework를 활용한 AI 에이전트 개발 워크샵입니다. 이 워크샵에서는 채팅, 에이전트, Azure AI 통합, MCP, 장기 메모리, 미들웨어, 그리고 Observability까지 다양한 주제를 다룹니다.
+Microsoft Agent Framework를 활용한 AI 에이전트 개발 워크샵입니다. 이 워크샵에서는 채팅, 에이전트, Azure AI 통합, MCP, 장기 메모리, 미들웨어, 그리고 Observability까지 다양한 주제를 다룹니다.
 
 ## 📚 워크샵 구성
 
