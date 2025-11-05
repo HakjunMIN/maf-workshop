@@ -4,7 +4,7 @@ Microsoft Agent Framework를 활용한 AI 에이전트 개발 워크샵입니다
 
 ## 📚 워크샵 구성
 
-이 워크샵은 7개의 Jupyter Notebook으로 구성되어 있으며, 각 노트북은 독립적으로 학습할 수 있습니다.
+이 워크샵은 8개의 Jupyter Notebook으로 구성되어 있으며, 각 노트북은 독립적으로 학습할 수 있습니다.
 
 ### 1️⃣ Chat (01. chat.ipynb)
 기본적인 채팅 기능 구현을 학습합니다.
@@ -130,6 +130,26 @@ Agent의 모니터링과 추적을 위한 Observability를 학습합니다.
 
 ---
 
+### 8️⃣ Evaluation - Red Teaming (08. eval.ipynb)
+Azure AI Evaluation을 사용하여 AI 에이전트의 안전성과 견고성을 평가하는 방법을 학습합니다.
+
+**학습 내용:**
+- Red Teaming의 개념과 중요성
+- Azure AI Evaluation Red Team 기능
+- 위험 카테고리 (Violence, Hate/Unfairness, Sexual, Self-Harm)
+- 다양한 공격 전략 (인코딩, 난독화 기법)
+- 평가 결과 분석 및 해석
+- 안전 가이드라인 강화 방법
+
+**주요 예제:**
+- 금융 자문 Agent Red Team 평가
+- 11가지 공격 전략 적용
+- 평가 결과 스코어카드 분석
+- 개선된 안전 프롬프트 구현
+- 적대적 공격 시뮬레이션
+
+---
+
 ## 🚀 시작하기
 
 ### 사전 요구사항
@@ -197,6 +217,10 @@ Agent의 모니터링과 추적을 위한 Observability를 학습합니다.
    
    # Redis 설정 (선택 - Long-term Memory 실습용)
    REDIS_URL=redis://localhost:6379
+   
+   # Observability 설정 (선택 - Observability 실습용)
+   ENABLE_OTEL=true
+   OTLP_ENDPOINT=localhost:4317
    ```
 
 5. **Jupyter 실행**
@@ -221,6 +245,9 @@ Agent의 모니터링과 추적을 위한 Observability를 학습합니다.
 3. **운영 및 모니터링** (선택)
    - 06. Middleware → 07. Observability
 
+4. **안전성 평가** (선택)
+   - 08. Evaluation (Red Teaming)
+
 ### 각 노트북 학습 시간
 
 - Chat: 30분
@@ -230,29 +257,9 @@ Agent의 모니터링과 추적을 위한 Observability를 학습합니다.
 - Long-term Memory: 1.5시간
 - Middleware: 45분
 - Observability: 1시간
+- Evaluation (Red Teaming): 1.5시간 (평가 실행 시간 포함)
 
-**총 학습 시간: 약 6시간**
-
----
-
-## 🛠️ 기술 스택
-
-### 핵심 라이브러리
-
-- **agent-framework**: Microsoft Agent Framework
-- **agent-framework-azure-ai**: Azure AI 통합
-- **azure-identity**: Azure 인증
-- **python-dotenv**: 환경 변수 관리
-- **pydantic**: 데이터 검증 및 직렬화
-
-### 추가 라이브러리 (선택)
-
-- **mem0ai**: Mem0 장기 메모리
-- **redis**: Redis 캐싱 및 저장소
-- **opentelemetry**: Observability
-- **mcp**: Model Context Protocol
-
----
+**총 학습 시간: 약 7.5시간**
 
 ## 💡 주요 학습 포인트
 
@@ -358,18 +365,9 @@ ValidationError: Filters are required and cannot be empty
 - [Azure AI Studio](https://ai.azure.com/)
 - [OpenTelemetry Python](https://opentelemetry.io/docs/languages/python/)
 - [Redis Vector Search](https://redis.io/docs/stack/search/reference/vectors/)
-
----
-
-## 🤝 기여하기
-
-이 워크샵에 기여하고 싶으시다면:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- [Azure AI Evaluation](https://learn.microsoft.com/azure/ai-services/openai/concepts/evaluation)
+- [Responsible AI Guidelines](https://learn.microsoft.com/azure/ai-services/openai/concepts/responsible-ai)
+- [PyRIT - Python Risk Identification Toolkit](https://github.com/Azure/PyRIT)
 
 ---
 
