@@ -1,6 +1,6 @@
 {
   "name": "MAF Workshop - Python 3.12 with uv",
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
   
   // Features to add to the dev container
   "features": {
