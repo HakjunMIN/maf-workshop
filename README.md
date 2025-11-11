@@ -4,7 +4,7 @@ Microsoft Agent Framework를 활용한 AI 에이전트 개발 워크샵입니다
 
 ## 📚 워크샵 구성
 
-이 워크샵은 8개의 Jupyter Notebook으로 구성되어 있으며, 각 노트북은 독립적으로 학습할 수 있습니다.
+이 워크샵은 9개의 Jupyter Notebook으로 구성되어 있으며, 각 노트북은 독립적으로 학습할 수 있습니다.
 
 ### 1️⃣ Chat (01. chat.ipynb)
 기본적인 채팅 기능 구현을 학습합니다.
@@ -147,6 +147,30 @@ Azure AI Evaluation을 사용하여 AI 에이전트의 안전성과 견고성을
 - 평가 결과 스코어카드 분석
 - 개선된 안전 프롬프트 구현
 - 적대적 공격 시뮬레이션
+
+**학습 시간:** 약 50-60분
+
+---
+
+### 9️⃣ Sequential Workflows (09. sequential.ipynb)
+Agent Framework의 Sequential Workflow 기능을 사용하여 여러 AI 에이전트를 순차적으로 연결하는 방법을 학습합니다.
+
+**학습 내용:**
+- Sequential Workflow의 개념과 작동 방식
+- SequentialBuilder를 사용한 에이전트 체인 구성
+- 순차 실행에서 컨텍스트 전달 메커니즘
+- Workflow를 Agent로 래핑하는 방법
+- 커스텀 Executor와 Agent의 혼합 사용
+- 스트리밍 이벤트 모니터링
+
+**주요 예제:**
+- Writer → Reviewer 기본 체인
+- 콘텐츠 생산 파이프라인 (Research → Write → Edit → QA)
+- 커스텀 Executor 개발 및 통합
+- 워크플로우 성능 메트릭 분석
+- 복합 워크플로우 구성
+
+**학습 시간:** 약 45-55분
 
 ---
 
