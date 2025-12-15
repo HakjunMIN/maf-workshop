@@ -7,8 +7,8 @@ requires-python = ">=3.12"
 version = "0.1.0"
 license = { text = "MIT" }
 dependencies = [
-    "agent-framework>=1.0.0b251028",
-    "agent-framework-azure-ai>=1.0.0b251028",
+    "agent-framework>=1.0.0b251211",
+    "agent-framework-azure-ai>=1.0.0b251211",
     "python-dotenv>=1.0.0",
     "azure-identity>=1.15.0",
     "pydantic>=2.0.0",
@@ -16,6 +16,7 @@ dependencies = [
     "ipykernel>=6.0.0",
     "mem0ai==0.1.117",
     "azure-ai-evaluation[redteam]>=1.11.0",
+    "azure-monitor-opentelemetry-exporter>=1.0.0b41"
 ]
 
 [dependency-groups]
